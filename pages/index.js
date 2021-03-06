@@ -68,8 +68,7 @@ function Encripta() {
 		var l;
 		var i;
 		var j=0;
-		
-		
+				
 		ch = ch = ch + ch + ch + ch + "2342sadfedkdkLLnm";
 		//ch = "aeslsQQEcDDldiVVkadi2342sddfsadfedkdkLLnm";	
 		for (i=0;i<dados.length; i++){
