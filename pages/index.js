@@ -57,7 +57,7 @@ function CapsLock(props) {
 function Encripta() {
 	var ch = document.getElementById("chave").value;
 	if (ch.length < 16){
-		alert("Tamanho de chave insuficiente");
+		alert("Tamanho de chave insuficiente. Usar 16 caracteres.");
 		return;
 	}
 	else
