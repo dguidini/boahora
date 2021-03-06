@@ -1,0 +1,25 @@
+{
+  "name": "boahora",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dguidini/boahora.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dguidini/boahora/issues"
+  },
+  "homepage": "https://github.com/dguidini/boahora#readme",
+  "dependencies": {
+    "next": "^10.0.8",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
