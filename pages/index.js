@@ -10,7 +10,7 @@ function home(){
 			<div><input type="text" id="TextoEncriptar" size = "100" /></div>
 			<div><br/></div>
         	
-			<div>Chave:</div>
+			<div>Chave (Pelo menos 16 caracteres):</div>
 			<div><input type="text" id="chave" size = "100"/></div>
 
 			<div><br/></div>
@@ -55,55 +55,77 @@ function CapsLock(props) {
 }
 
 function Encripta() {
+	var ch = document.getElementById("chave").value;
+	if (ch.length < 16){
+		alert("Tamanho de chave insuficiente");
+		return;
+	}
+	else
+	{
 
-    var dados = document.getElementById("TextoEncriptar").value;
+		var dados = document.getElementById("TextoEncriptar").value;
+		var mensx="";
+		var l;
+		var i;
+		var j=0;
+		
+		
+		ch = ch = ch + ch + ch + ch + "2342sadfedkdkLLnm";
+		//ch = "aeslsQQEcDDldiVVkadi2342sddfsadfedkdkLLnm";	
+		for (i=0;i<dados.length; i++){
+			j++;
+			l=(Asc(dados.substr(i,1))+(Asc(ch.substr(j,1))));
+			if (j==50){
+				j=1;
+			}
+			if (l>255){
+				l-=256;
+			}
+			mensx+=(Chr(l));
+		}
+	//	document.getElementById("1").value=mensx;
 
-    var mensx="";
-    var l;
-    var i;
-    var j=0;
-    var ch;
-    ch = "aeslsQQEcDDldiVVkadi2342sddfsadfedkdkLLnm";	
-    for (i=0;i<dados.length; i++){
-        j++;
-        l=(Asc(dados.substr(i,1))+(Asc(ch.substr(j,1))));
-        if (j==50){
-            j=1;
-        }
-        if (l>255){
-            l-=256;
-        }
-        mensx+=(Chr(l));
-    }
-//	document.getElementById("1").value=mensx;
-
-	document.getElementById("TextoEncriptado").value = mensx;
-    return <div>{mensx}</div>
+		document.getElementById("TextoEncriptado").value = mensx;
+		return <div>{mensx}</div>
+	}
 }
 
 function Descripta(){
-    
-	var dados = document.getElementById("TextoEncriptado").value;
-	var mensx="";
-	var l;
-	var i;
-	var j=0;
-	var ch;
-	ch = "aeslsQQEcDDldiVVkadi2342sddfsadfedkdkLLnm";	
-	for (i=0; i<dados.length;i++){
-		j++;
-		l=(Asc(dados.substr(i,1))-(Asc(ch.substr(j,1))));
-		if (j==50){
-			j=1;
-		}
-		if (l<0){
-			l+=256;
-		}
-		mensx+=(Chr(l));
-	}	
-	document.getElementById("TextoDesencriptado").value = mensx;
-	return <div>{mensx}</div>
+    var ch = document.getElementById("chave").value;
+	alert(ch.length);
+	if (ch.length < 16){
+		alert("Tamanho de chave insuficiente");
+		return;
+	}
+	else
+	{
+
 	
+
+		var dados = document.getElementById("TextoEncriptado").value;
+		var mensx="";
+		var l;
+		var i;
+		var j=0;
+		
+		
+		ch = ch + ch + ch + ch + "2342sadfedkdkLLnm";
+		
+		//ch = "aeslsQQEcDDldiVVkadi2342sddfsadfedkdkLLnm";	
+		for (i=0; i<dados.length;i++){
+			j++;
+			l=(Asc(dados.substr(i,1))-(Asc(ch.substr(j,1))));
+			if (j==50){
+				j=1;
+			}
+			if (l<0){
+				l+=256;
+			}
+			mensx+=(Chr(l));
+		}	
+		document.getElementById("TextoDesencriptado").value = mensx;
+		return <div>{mensx}</div>
+	}
 }
 function Asc(String){
 	return String.charCodeAt(0);
